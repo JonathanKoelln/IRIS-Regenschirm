@@ -70,6 +70,9 @@ select {
 <label>Ausstattung:</label>
 <select id="Ausstattung" onchange="updateTotal()"></select>
 
+<label>Batterie:</label>
+<select id="Batterie" onchange="updateTotal()"></select>
+
 <div class="card">
 <h2>Holz</h2>
 <select id="holz" onchange="updateTotal()"></select>
@@ -105,6 +108,12 @@ const options = {
         {name:"-- wählen --", price:0},
         {name:"Noftallknopf", price:99999},
         {name:"360 Kamera", price:99999},
+    ],
+            Batterie: [
+        {name:"-- wählen --", price:0},
+        {name:"3000mah", price:99},
+        {name:"6000mah", price:199},
+        {name:"9000mah", price:299},
     ],
     metall: [
         {name:"-- wählen --", price:0},
@@ -172,8 +181,7 @@ function updateTotal() {
         total += Number(document.getElementById(key).value);
     }
 
-    const batterieFactor = Number(document.getElementById("batterie").value);
-    total = total * batterieFactor;
+
 
     document.getElementById('result').textContent =
         Math.round(total/10)*10 + ' €';
