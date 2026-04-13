@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Konfigurator</title>
+<style>
+body {
+    margin: 0;
+    font-family: "Segoe UI", sans-serif;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    color: white;
+}
+.container {
+    max-width: 500px;
+    margin: auto;
+    padding: 30px;
+}
+.card {
+    background: rgba(255,255,255,0.05);
+    border-radius: 15px;
+    padding: 20px;
+    margin-top: 20px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+h1 {
+    text-align: center;
+    color: gold;
+}
+h2 {
+    margin-top: 0;
+    color: #ffd700;
+}
+label {
+    display: block;
+    margin-top: 10px;
+}
+select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    background: #111827;
+    color: white;
+    border: 1px solid gold;
+    border-radius: 5px;
+}
+.result {
+    font-size: 2em;
+    text-align: center;
+    margin-top: 30px;
+    color: gold;
+    font-weight: bold;
+}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>Konfigurator</h1>
+
+<div class="card">
+<h2>Grundkomponente</h2>
+
+<label>Speichenanzahl:</label>
+<select id="speichen" onchange="updateTotal()"></select>
+
+<label>Metarial:</label>
+<select id="metall" onchange="updateTotal()"></select>
+
+<label>Ausstattung:</label>
+<select id="Ausstattung" onchange="updateTotal()"></select>
+
+<div class="card">
+<h2>Holz</h2>
+<select id="holz" onchange="updateTotal()"></select>
+</div>
+
+<div class="card">
+<h2>Stoff</h2>
+<select id="stoff" onchange="updateTotal()"></select>
+</div>
+
+<div class="card">
+<h2>Edelstein</h2>
+<select id="edelstein" onchange="updateTotal()"></select>
+</div>
+
+<div class="card">
+<h2>Leder</h2>
+<select id="leder" onchange="updateTotal()"></select>
+</div>
+
+<div class="result" id="result">0 €</div>
+
+<script>
+const options = {
+    speichen: [
+        {name:"-- wählen --", price:0},
+        {name:"7", price:553},
+        {name:"8", price:632},
+        {name:"10", price:790},
+        {name:"12", price:948},
+    ],
+        Ausstattung: [
+        {name:"-- wählen --", price:0},
+        {name:"Noftallknopf", price:99999},
+        {name:"360 Kamera", price:99999},
+    ],
+    metall: [
+        {name:"-- wählen --", price:0},
+        {name:"Edelstahl", price:143},
+        {name:"Messing", price:152},
+        {name:"Bronze", price:193},
+        {name:"Carbon", price:258},
+        {name:"Silber", price:312},
+        {name:"Titan", price:372},
+        {name:"Gold", price:466},
+    ],
+    holz: [
+        {name:"-- wählen --", price:0},
+        {name:"Bambus", price:43},
+        {name:"Kirsche", price:61},
+        {name:"Walnuss", price:75},
+        {name:"Räuchereiche", price:82},
+        {name:"Amaranth", price:87},
+        {name:"Perlenholz", price:119},
+        {name:"Wildolivenholz", price:126},
+        {name:"Wüsteneisenholz", price:244},
+        {name:"Ebenholz", price:280},
+    ],
+    stoff: [
+        {name:"-- wählen --", price:0},
+        {name:"Kodura", price:20},
+        {name:"Onyx", price:40},
+        {name:"Martindale", price:50},
+        {name:"Polyester", price:60},
+        {name:"Seide", price:140},
+    ],
+    edelstein: [
+        {name:"-- wählen --", price:0},
+        {name:"Jade", price:8},
+        {name:"Tahitiperle", price:158},
+        {name:"Edisonperle", price:198},
+        {name:"Diamant", price:2800},
+    ],
+    leder: [
+        {name:"-- wählen --", price:0},
+        {name:"Kunst", price:30},
+        {name:"Wild", price:70},
+        {name:"Büffel", price:80},
+        {name:"Schlange", price:120},
+        {name:"Reptil", price:150},
+        {name:"Pecarry", price:200},
+    ]
+};
+
+function populateSelect(id) {
+    const select = document.getElementById(id);
+    select.innerHTML = "";
+    options[id].forEach(opt => {
+        const option = document.createElement("option");
+        option.value = opt.price;
+        option.textContent = opt.name + (opt.price > 0 ? ` (+${opt.price} €)` : "");
+        select.appendChild(option);
+    });
+}
+
+function updateTotal() {
+    let total = 0;
+
+    for (let key in options) {
+        total += Number(document.getElementById(key).value);
+    }
+
+    const batterieFactor = Number(document.getElementById("batterie").value);
+    total = total * batterieFactor;
+
+    document.getElementById('result').textContent =
+        Math.round(total/10)*10 + ' €';
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+    for (let key in options) {
+        populateSelect(key);
+    }
+    updateTotal();
+});
+</script>
+</body>
+</html>
