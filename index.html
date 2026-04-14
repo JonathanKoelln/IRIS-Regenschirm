@@ -222,6 +222,7 @@ function updateTotal() {
     }
     document.getElementById('result').textContent =
         Math.round(total/10)*10 + ' €';
+    updateImage();
 }
 
 /* BILD LOGIK */
@@ -242,7 +243,7 @@ function updateImage() {
     if (metall === 6) imagePath = "images/titan.jpg";
     if (metall === 7) imagePath = "images/gold.jpg";
 
-    if (holz === 1) imagePath = "images/bambus.jpg";
+    if (holz == 1) imagePath = "images/bambus.jpg";
     if (holz === 2) imagePath = "images/kirsche.jpg";
     if (holz === 3) imagePath = "images/walnuss.jpg";
     if (holz === 4) imagePath = "images/räuchereiche.jpg";
