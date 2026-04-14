@@ -162,9 +162,9 @@ const options = {
     ],
     Batterie: [
         {name:"-- wählen --", price:0},
-        {name:"3000mah", price:99},
-        {name:"6000mah", price:199},
-        {name:"9000mah", price:299},
+        {name:"3000mAh", price:99},
+        {name:"6000mAh", price:199},
+        {name:"9000mAh", price:299},
     ],
     holz: [
         {name:"-- wählen --", price:0},
@@ -242,6 +242,8 @@ function updateImage() {
     if (metall === 6) imagePath = "images/titan.jpg";
     if (metall === 7) imagePath = "images/gold.jpg";
 
+    if (austattung === 1) imagePath = "images/asd";
+
     if (holz === 1) imagePath = "images/bambus.jpg";
     if (holz === 2) imagePath = "images/kirsche.jpg";
     if (holz === 3) imagePath = "images/walnuss.jpg";
@@ -252,6 +254,22 @@ function updateImage() {
     if (holz === 8) imagePath = "images/wüsteneisenholz.jpg";
     if (holz === 9) imagePath = "images/ebenholz.jpg";
 
+    if (stoff === 1) imagePath = "images/kodura.jpg";
+    if (stoff === 2) imagePath = "images/onyx.jpg"; 
+    if (stoff === 3) imagePath = "images/martindale.jpg";
+    if (stoff === 4) imagePath = "images/polyester.jpg";
+    if (stoff === 5) imagePath = "images/seide.jpg";
+
+    if (edelstein === 1) imagePath = "images/jade.jpg";
+    if (edelstein === 2) imagePath = "images/tahitiperle.jpg";
+    if (edelstein === 3) imagePath = "images/edisionperle.jpg";
+    if (edelstein === 4) imagePath = "images/diamant.jpg";
+
+    if (leder === 1) imagePath = "images/kunst.jpg";
+    if (leder === 2) imagePath = "images/wild.jpg";
+    if (leder === 2) imagePath = "images/büffel.jpg";
+    if (leder === 2) imagePath = "images/schlange.jpg";
+    
     document.getElementById("productImage").src = imagePath;
 }
 
