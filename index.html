@@ -87,7 +87,7 @@ select {
 
     <!-- LINKES BILD -->
     <div class="image-box">
-        <img id="productImage" src="images/bambus.jpg" alt="Produkt">
+        <img id="productImage" src="images/default.jpg" alt="Produkt">
     </div>
 
     <!-- RECHTS KONFIGURATOR -->
@@ -252,8 +252,7 @@ function updateImage() {
     if (holz === 8) imagePath = "images/wüsteneisenholz.jpg";
     if (holz === 9) imagePath = "images/ebenholz.jpg";
 
-    document.getElementById("productImage").src = imagePath;
-    Console.log("hi");
+    document.getElementById("productImage").src = "images/bambus.jpg";
 }
 
 window.addEventListener('DOMContentLoaded', () => {
