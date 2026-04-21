@@ -105,7 +105,7 @@ select {
             <select id="metall" onchange="updateTotal(); updateImage();"></select>
 
             <label>Ausstattung:</label>
-            <select id="Austattung" onchange="updateTotal()"></select>
+            <select id="Ausstattung" onchange="updateTotal(); updateImage();"></select>
 
             <label>Batterie:</label>
             <select id="Batterie" onchange="updateTotal()"></select>
@@ -117,17 +117,17 @@ select {
 
             <div class="card">
                 <h2>Stoff</h2>
-                <select id="stoff" onchange="updateTotal()"></select>
+                <select id="stoff" onchange="updateTotal(); updateImage();"></select>
             </div>
 
             <div class="card">
                 <h2>Edelstein</h2>
-                <select id="edelstein" onchange="updateTotal()"></select>
+                <select id="edelstein" onchange="updateTotal(); updateImage();"></select>
             </div>
 
             <div class="card">
                 <h2>Leder</h2>
-                <select id="leder" onchange="updateTotal()"></select>
+                <select id="leder" onchange="updateTotal(); updateImage();"></select>
             </div>
 
             <div class="result" id="result">0 €</div>
