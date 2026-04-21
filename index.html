@@ -104,11 +104,11 @@ select {
             <label>Material:</label>
             <select id="metall" onchange="updateTotal(); updateImage();"></select>
 
-            <label>Ausstattung:</label>
-            <select id="Ausstattung" onchange="updateTotal(); updateImage();"></select>
-
             <label>Batterie:</label>
             <select id="Batterie" onchange="updateTotal()"></select>
+            
+            <label>Ausstattung:</label>
+            <select id="Ausstattung" onchange="updateTotal(); updateImage();"></select>
 
             <div class="card">
                 <h2>Holz</h2>
@@ -157,8 +157,13 @@ const options = {
     ],
     Ausstattung: [
         {name:"-- wählen --", price:0},
-        {name:"Notfallknopf", price:99999},
-        {name:"360 Kamera", price:99999},
+        {name:"USB", price:20},
+        {name:"Tracker", price:40},
+        {name:"Hand", price:80},
+        {name:"Notfallknopf", price:100},
+        {name:"Navi", price:120},
+        {name:"Speacker", price:180},
+        {name:"Kamera", price:300},
     ],
     Batterie: [
         {name:"-- wählen --", price:0},
@@ -242,8 +247,13 @@ function updateImage() {
     if (metall === 6) imagePath = "images/titan.jpg";
     if (metall === 7) imagePath = "images/gold.jpg";
 
-    if (ausstattung === 1) imagePath = "images/asd.jpg";
-
+    if (ausstattung === 1) imagePath = "images/Regenschirm Kamera.jpg";
+    if (ausstattung === 2) imagePath = "images/Regenschirm Lautsprecher.jpg";
+    if (ausstattung === 3) imagePath = "images/Regenschirm Navi";
+    if (ausstattung === 4) imagePath = "images/Regenschirm SOS.jpg";
+    if (ausstattung === 4) imagePath = "images/Regenschirm Tracker.jpg";
+    if (ausstattung === 4) imagePath = "images/Regenschirm USB-C.jpg";
+    
     if (holz === 1) imagePath = "images/bambus.jpg";
     if (holz === 2) imagePath = "images/kirsche.jpg";
     if (holz === 3) imagePath = "images/walnuss.jpg";
@@ -269,6 +279,9 @@ function updateImage() {
     if (leder === 2) imagePath = "images/wild.jpg";
     if (leder === 3) imagePath = "images/büffel.jpg";
     if (leder === 4) imagePath = "images/schlange.jpg";
+    if (leder === 5) imagePath = "images/reptil.jpg";
+    if (leder === 6) imagePath = "images/pecarry.jpg";
+
     
     document.getElementById("productImage").src = imagePath;
 }
