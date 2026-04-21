@@ -237,6 +237,7 @@ function updateImage() {
     const stoff = document.getElementById("stoff").selectedIndex;
     const edelstein = document.getElementById("edelstein").selectedIndex;
     const leder = document.getElementById("leder").selectedIndex;
+    const Batterie = document.getElementById("Batterie").selectedIndex;
     let imagePath = "images/default.jpg";
 
     if (metall === 1) imagePath = "images/edelstahl.jpg";
@@ -254,6 +255,8 @@ function updateImage() {
     if (ausstattung === 5) imagePath = "images/Regenschirm Navi.jpg";
     if (ausstattung === 6) imagePath = "images/Regenschirm Lautsprecher.jpg";
     if (ausstattung === 7) imagePath = "images/Regenschirm Kamera.jpg";
+
+    if (Batterie === 1) imagePath = "images/Regenschirm Batterie.jpg";
     
     if (holz === 1) imagePath = "images/bambus.jpg";
     if (holz === 2) imagePath = "images/kirsche.jpg";
